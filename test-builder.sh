@@ -23,6 +23,7 @@ sleep 10
 
 wget http://dev.mycompany.com:3000
 
+bundle exec rake test
 # echo 'Start Resque'
 # RAILS_ENV=selenium rake resque:work QUEUE=* VERBOSE=1 > resque.log 2>&1 &
 # resque_process_id=$!
