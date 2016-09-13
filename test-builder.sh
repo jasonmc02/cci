@@ -16,6 +16,8 @@ until grep -q 3000 thin.log; do
     echo -ne "\033[0K\r Starting Server process id $server_process_id"
 done
 
+wget http://dev.mycompany.com:3000
+
 # echo 'Start Resque'
 # RAILS_ENV=selenium rake resque:work QUEUE=* VERBOSE=1 > resque.log 2>&1 &
 # resque_process_id=$!
