@@ -1,5 +1,5 @@
 ## Customize the test machine
-# machine:
+machine:
 
   # timezone:
   #   America/Los_Angeles # Set the timezone
@@ -20,13 +20,13 @@
   #   DATABASE_URL: postgres://ubuntu:@127.0.0.1:5432/circle_test
 
 ## Customize checkout
-# checkout:
+checkout:
 #   post:
 #     - git submodule sync
 #     - git submodule update --init # use submodules
 
 ## Customize dependencies
-# dependencies:
+dependencies:
 #   pre:
 #     - npm install coffeescript # install from a different package manager
 #     - gem uninstall bundler # use a custom version of bundler
@@ -45,7 +45,7 @@
   #   - "~/custom_2" # relative to the user's home directory
 
 ## Customize database setup
-# database:
+database:
 #   override:
     # replace CircleCI's generated database.yml
     # - cp config/database.yml.ci config/database.yml
@@ -53,13 +53,14 @@
 
 ## Customize test commands
 test:
-  # override:
+  override:
+    - ./test-builder.sh
   #   - phpunit test/unit-tests # use PHPunit for testing
-  post:
-    - bundle exec rails server:
+  # post:
+    # - bundle exec rails server:
     # - bundle exec rake jasmine:ci: # add an extra test type
     #     environment:
-          RAILS_ENV: test
+          # RAILS_ENV: test
     #       RACK_ENV: test
 
 ## Customize deployment commands
