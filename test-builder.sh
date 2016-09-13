@@ -12,7 +12,7 @@ bundle exec rake db:migrate
 
 echo 'Start Server'
 # SIMPLECOV=ON thin start > thin.log 2>&1 &
-bundle exec rails server > $CIRCLE_ARTIFACTS/debug.log 2>&1 &
+bundle exec rails server -d > $CIRCLE_ARTIFACTS/debug.log 2>&1 &
 server_process_id=$!
 
 sleep 10
