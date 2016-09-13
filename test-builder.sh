@@ -12,7 +12,7 @@ echo 'Start Server'
 bundle exec rails server > thin.log 2>&1 &
 server_process_id=$!
 
-until grep -q Listening thin.log; do
+until grep -q 3000 thin.log; do
     echo -ne "\033[0K\r Starting Server process id $server_process_id"
 done
 
