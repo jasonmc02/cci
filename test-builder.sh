@@ -15,9 +15,11 @@ echo 'Start Server'
 bundle exec rails server > $CIRCLE_ARTIFACTS/debug.log 2>&1 &
 server_process_id=$!
 
-until grep -q 3000 $CIRCLE_ARTIFACTS/debug.log; do
+sleep 10
+
+# until grep -q 3000 $CIRCLE_ARTIFACTS/debug.log; do
     echo -ne "\033[0K\r Starting Server process id $server_process_id"
-done
+# done
 
 wget http://dev.mycompany.com:3000
 
