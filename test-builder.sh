@@ -7,9 +7,12 @@
 # echo 'Restart MongoDB to prevent failures'
 # bash restart_mongo.sh
 
+bundle exec rake db:create
+bundle exec rake db:migrate
+
 echo 'Start Server'
 # SIMPLECOV=ON thin start > thin.log 2>&1 &
-bundle exec rails server > thin.log 2>&1 &
+bundle exec rails server > $CIRCLE_ARTIFACTS/debug.log 2>&1 &
 server_process_id=$!
 
 until grep -q 3000 thin.log; do
