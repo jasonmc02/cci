@@ -7,8 +7,8 @@
 # echo 'Restart MongoDB to prevent failures'
 # bash restart_mongo.sh
 
-bundle exec rake db:create
-bundle exec rake db:migrate
+bundle exec rake db:create RAILS_ENV=development
+bundle exec rake db:migrate AILS_ENV=development
 
 echo 'Start Server'
 # SIMPLECOV=ON thin start > thin.log 2>&1 &
@@ -29,7 +29,7 @@ wget https://www.dropbox.com/s/95yuqvmdbiqood6/users.sql
 mysql cci_development -uroot < users.sql
 
 # bundle exec rake test
-wget http://dev.mycompany.com:3000/users/2000000
+wget http://dev.mycompany.com:3000
 
 curl http://dev.mycompany.com:3000/users/2000000
 
