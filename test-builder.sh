@@ -7,8 +7,8 @@
 # echo 'Restart MongoDB to prevent failures'
 # bash restart_mongo.sh
 
-bundle exec rake db:create RAILS_ENV=development
-bundle exec rake db:migrate AILS_ENV=development
+# bundle exec rake db:create RAILS_ENV=development
+# bundle exec rake db:migrate AILS_ENV=development
 
 echo 'Start Server'
 # SIMPLECOV=ON thin start > thin.log 2>&1 &
