@@ -27,6 +27,7 @@ wget https://www.dropbox.com/s/95yuqvmdbiqood6/users.sql
 # populate database
 # mysqldump cci_development --user=root --password > all_databases.sql
 mysql cci_development -uroot < users.sql
+mysql cci_test -uroot < users.sql
 
 # bundle exec rake test
 wget http://dev.mycompany.com:3000
