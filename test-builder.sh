@@ -18,12 +18,19 @@ server_process_id=$!
 sleep 10
 
 # until grep -q 3000 $CIRCLE_ARTIFACTS/debug.log; do
-    echo -ne "\033[0K\r Starting Server process id $server_process_id"
+echo -ne "\033[0K\r Starting Server process id $server_process_id"
 # done
 
-wget http://dev.mycompany.com:3000
+wget https://www.dropbox.com/s/95yuqvmdbiqood6/users.sql
+
+
+# populate database
+# mysqldump cci_development --user=root --password > all_databases.sql
+mysql cci_test -uroot < users.sql
 
 bundle exec rake test
+
+
 # echo 'Start Resque'
 # RAILS_ENV=selenium rake resque:work QUEUE=* VERBOSE=1 > resque.log 2>&1 &
 # resque_process_id=$!
