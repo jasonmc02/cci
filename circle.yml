@@ -5,7 +5,6 @@ machine:
 database:
   override:
     - cp config/database.yml.tmp config/database.yml
-    - bundle exec rake db:create db:migrate
 test:
   override:
     - sh ./test-builder.sh

@@ -5,14 +5,13 @@ default: &default
   pool: 1
   username: root
   password: ''
+  database: cci
 
 development:
   <<: *default
-  database: cci_development
 
 test:
   <<: *default
-  database: cci_test
 
 production:
   <<: *default
