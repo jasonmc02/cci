@@ -29,7 +29,7 @@ echo -ne "\033[0K\r Starting Server process id $server_process_id"
 
 
 # bundle exec rake test
-wget http://dev.mycompany.com:3000
+# wget http://dev.mycompany.com:3000
 
 curl http://dev.mycompany.com:3000/users/2000000
 
