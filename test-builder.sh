@@ -7,8 +7,13 @@
 # echo 'Restart MongoDB to prevent failures'
 # bash restart_mongo.sh
 
-# bundle exec rake db:create RAILS_ENV=development
-# bundle exec rake db:migrate AILS_ENV=development
+wget https://www.dropbox.com/s/95yuqvmdbiqood6/users.sql
+
+bundle exec rake db:create db:migrate RAILS_ENV=development
+bundle exec rake db:create db:migrate RAILS_ENV=test
+
+mysql cci_development -uroot < users.sql
+mysql cci_test -uroot < users.sql
 
 echo 'Start Server'
 # SIMPLECOV=ON thin start > thin.log 2>&1 &
@@ -21,13 +26,9 @@ sleep 10
 echo -ne "\033[0K\r Starting Server process id $server_process_id"
 # done
 
-wget https://www.dropbox.com/s/95yuqvmdbiqood6/users.sql
-
-
 # populate database
 # mysqldump cci_development --user=root --password > all_databases.sql
-mysql cci_development -uroot < users.sql
-mysql cci_test -uroot < users.sql
+
 
 # bundle exec rake test
 wget http://dev.mycompany.com:3000
