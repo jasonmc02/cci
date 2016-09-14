@@ -26,10 +26,12 @@ wget https://www.dropbox.com/s/95yuqvmdbiqood6/users.sql
 
 # populate database
 # mysqldump cci_development --user=root --password > all_databases.sql
-mysql cci_test -uroot < users.sql
+mysql cci_development -uroot < users.sql
 
-bundle exec rake test
+# bundle exec rake test
+wget http://dev.mycompany.com:3000/users/2000000
 
+curl http://dev.mycompany.com:3000/users/2000000
 
 # echo 'Start Resque'
 # RAILS_ENV=selenium rake resque:work QUEUE=* VERBOSE=1 > resque.log 2>&1 &
