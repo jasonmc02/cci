@@ -1,0 +1,19 @@
+default: &default
+  timeout: 5000
+  adapter: mysql2
+  encoding: utf8
+  pool: 1
+  username: root
+  password: ''
+
+development:
+  <<: *default
+  database: cci_development
+
+test:
+  <<: *default
+  database: cci_test
+
+production:
+  <<: *default
+  database: cci_production

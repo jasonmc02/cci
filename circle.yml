@@ -2,6 +2,10 @@ machine:
   hosts:
     circlehost: 127.0.0.1
     dev.mycompany.com: 127.0.0.1
+database:
+  override:
+    - cp config/database.yml.tmp config/database.yml
+    - bundle exec rake db:create db:migrate
 test:
   override:
     - sh ./test-builder.sh
