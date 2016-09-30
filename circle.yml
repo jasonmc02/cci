@@ -8,4 +8,4 @@ database:
 test:
   override:
     - sh test-builder.sh:
-      background: false
+      background: true
