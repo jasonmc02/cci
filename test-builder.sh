@@ -25,7 +25,7 @@ mysql cci -uroot < users.sql
 # done
 
 echo 'Start Server'
-thin start > thin.log 2>&1 &
+thin -d start > thin.log 2>&1 &
 server_process_id=$!
 echo -n "Starting Server process id $server_process_id"
 until grep -q Listening thin.log; do
