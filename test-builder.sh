@@ -13,16 +13,26 @@ bundle exec rake db:create db:migrate
 
 mysql cci -uroot < users.sql
 
-echo 'Start Server'
+# echo 'Start Server'
 # SIMPLECOV=ON thin start > thin.log 2>&1 &
-bundle exec rails server -d > $CIRCLE_ARTIFACTS/debug.log 2>&1 &
-server_process_id=$!
+# bundle exec rails server -d > $CIRCLE_ARTIFACTS/debug.log 2>&1 &
+# server_process_id=$!
 
-sleep 10
+# sleep 10
 
 # until grep -q 3000 $CIRCLE_ARTIFACTS/debug.log; do
-echo -ne "\033[0K\r Starting Server process id $server_process_id"
+# echo -ne "\033[0K\r Starting Server process id $server_process_id"
 # done
+
+echo 'Start Server'
+thin start > thin.log 2>&1 &
+server_process_id=$!
+echo -n "Starting Server process id $server_process_id"
+until grep -q Listening thin.log; do
+  echo -n '.'
+  sleep 5
+done
+echo 'Done'
 
 # populate database
 # mysqldump cci_development --user=root --password > all_databases.sql
