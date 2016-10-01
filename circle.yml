@@ -8,9 +8,9 @@ database:
     - bundle exec rake db:create db:migrate
 test:
   override:
-    - bundle exec thin start > thin.log > &:
+    - bundle exec thin start:
         background: true
     - echo 'to sleep'
-    - sleep 60
+    - sleep 30
     - echo 'wake up'
     - curl http://dev.mycompany.com:3000
