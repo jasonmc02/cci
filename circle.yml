@@ -9,3 +9,4 @@ test:
   override:
     - sh test-builder.sh:
         background: true
+        sleep: 10000
