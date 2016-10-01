@@ -5,6 +5,12 @@ machine:
 database:
   override:
     - cp config/database.yml.tmp config/database.yml
+    - bundle exec rake db:create db:migrate
 test:
   override:
-    - nohup bash -c "./test-builder.sh &"
+    - thin start:
+        background: true
+    - echo 'to sleep'
+    - sleep 60
+    - echo 'wake up'
+    - curl http://dev.mycompany.com:3000
