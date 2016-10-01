@@ -11,6 +11,6 @@ test:
     - bundle exec thin start:
         background: true
     - echo 'to sleep'
-    # - sleep 60
+    - sleep 60
     - echo 'wake up'
     - curl http://dev.mycompany.com:3000
