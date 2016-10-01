@@ -7,11 +7,11 @@
 # echo 'Restart MongoDB to prevent failures'
 # bash restart_mongo.sh
 
-wget -O users.sql 'https://www.dropbox.com/s/95yuqvmdbiqood6/users.sql'
+# wget -O users.sql 'https://www.dropbox.com/s/95yuqvmdbiqood6/users.sql'
 
 bundle exec rake db:create db:migrate
 
-mysql cci -uroot < users.sql
+# mysql cci -uroot < users.sql
 
 # echo 'Start Server'
 # SIMPLECOV=ON thin start > thin.log 2>&1 &
@@ -41,7 +41,7 @@ echo 'Done'
 # bundle exec rake test
 # wget http://dev.mycompany.com:3000
 
-curl http://dev.mycompany.com:3000/users/2000000
+curl http://dev.mycompany.com:3000/users
 
 echo 'going to sleep'
 sleep 60

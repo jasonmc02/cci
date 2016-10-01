@@ -7,5 +7,4 @@ database:
     - cp config/database.yml.tmp config/database.yml
 test:
   override:
-    - sh test-builder.sh:
-        background: true
+    - nohup bash -c "./test-builder.sh &"
