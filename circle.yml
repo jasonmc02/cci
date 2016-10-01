@@ -8,8 +8,10 @@ database:
     - bundle exec rake db:create db:migrate
 test:
   override:
-    - bundle exec thin start:
+    - bundle exec thin start > thin.log > 2>&1 &:
         background: true
+    - thin_proses = $!
+    - echo -n "starting server on $thin_proses"
     - echo 'to sleep'
     - sleep 60
     - echo 'wake up'
