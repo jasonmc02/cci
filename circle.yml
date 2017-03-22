@@ -16,7 +16,7 @@ test:
     - curl http://dev.mycompany.com:3000
 
     - pip install diff_cover
-    - pip install coverage 4.3.4
+    - pip install coverage
     - pip install nose
     - nosetests --with-coverage
     - coverage xml
