@@ -15,6 +15,4 @@ test:
     - echo 'wake up'
     - curl http://dev.mycompany.com:3000
 
-    - git clone https://github.com/Bachmann1234/diff-cover.git
-    - cd diff-cover
-    - python setup.py install
+    - pip install diff_cover
