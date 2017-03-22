@@ -16,3 +16,5 @@ test:
     - curl http://dev.mycompany.com:3000
 
     - pip install diff_cover
+    - nosetests --with-coverage
+    - coverage xml
