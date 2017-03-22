@@ -14,3 +14,8 @@ test:
     - sleep 30
     - echo 'wake up'
     - curl http://dev.mycompany.com:3000
+
+diff-cover:
+    - git clone https://github.com/Bachmann1234/diff-cover.git
+    - cd diff-cover
+    - python setup.py install
