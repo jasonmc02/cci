@@ -2,16 +2,21 @@ machine:
   hosts:
     circlehost: 127.0.0.1
     dev.mycompany.com: 127.0.0.1
+
+dependencia:
+  pre:
+    pre:
+      - pip install diff_cover
+      - pip install coverage
+      - pip install nose
+      - pip install --upgrade pip
+
 database:
   override:
     - cp config/database.yml.tmp config/database.yml
     - bundle exec rake db:create db:migrate
+
 test:
-  pre:
-    - pip install diff_cover
-    - pip install coverage
-    - pip install nose
-    - pip install --upgrade pip
   override:
     - bundle exec thin start:
         background: true
@@ -20,3 +25,6 @@ test:
     - echo 'wake up'
     - curl http://dev.mycompany.com:3000
     - bundle exec rake test
+
+  post:
+   - echo 'post'
