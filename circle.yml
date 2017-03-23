@@ -5,11 +5,10 @@ machine:
 
 dependencia:
   pre:
-    pre:
-      - pip install diff_cover
-      - pip install coverage
-      - pip install nose
-      - pip install --upgrade pip
+    - pip install diff_cover
+    - pip install coverage
+    - pip install nose
+    - pip install --upgrade pip
 
 database:
   override:
@@ -27,4 +26,4 @@ test:
     - bundle exec rake test
 
   post:
-   - nosetests --with-coverage
+   - echo 'post'
