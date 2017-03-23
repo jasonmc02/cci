@@ -27,7 +27,4 @@ test:
     - sleep 30
     - echo 'wake up'
     - curl http://dev.mycompany.com:3000
-    - bundle exec rake test -o "$CIRCLE_ARTIFACTS/coverage.xml"
-
-  post:
-    - diff-cover $CIRCLE_ARTIFACTS/coverage.xml
+    - bundle exec rake test
