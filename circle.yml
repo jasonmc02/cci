@@ -3,7 +3,7 @@ machine:
     circlehost: 127.0.0.1
     dev.mycompany.com: 127.0.0.1
 
-dependencia:
+dependencies:
   pre:
     - pip install diff_cover
     - pip install coverage
