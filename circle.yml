@@ -7,12 +7,10 @@ machine:
 
 dependencies:
   pre:
-    - gem install bundler
     - pip install --upgrade pip
     - pip install diff_cover
-
-  override:
-    - bundle install
+    - pip install coverage
+    - pip install nose
 
 database:
   override:
@@ -28,3 +26,7 @@ test:
     - echo 'wake up'
     - curl http://dev.mycompany.com:3000
     - bundle exec rake test
+
+  post:
+    - nosetests --with-coverage
+    - coverage xml
