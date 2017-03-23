@@ -19,5 +19,6 @@ test:
     - pip install coverage
     - pip install nose
     - pip install --upgrade pip
-    - nosetests --with-coverage
-    - coverage xml
+    - nosetests --help
+    - nosetests --plugins
+    
