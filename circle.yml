@@ -26,4 +26,5 @@ test:
     - bundle exec rake test
 
   post:
-   - echo 'post'
+   - echo "<p>Hello</p>" \
+         > $CIRCLE_ARTIFACTS/hello.html
