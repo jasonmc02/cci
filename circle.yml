@@ -1,14 +1,18 @@
 machine:
+  ruby:
+      version: 2.3.1
   hosts:
     circlehost: 127.0.0.1
     dev.mycompany.com: 127.0.0.1
 
 dependencies:
   pre:
-    - pip install diff_cover
-    - pip install coverage
-    - pip install nose
+    - gem install bundler
     - pip install --upgrade pip
+    - pip install diff_cover
+
+  override:
+    - bundle install
 
 database:
   override:
@@ -18,13 +22,9 @@ database:
 test:
   override:
     - bundle exec thin start:
-        background: true
+          background: true
     - echo 'to sleep'
     - sleep 30
     - echo 'wake up'
     - curl http://dev.mycompany.com:3000
     - bundle exec rake test
-
-  post:
-   - echo "<p>Hello</p>" \
-         > $CIRCLE_ARTIFACTS/hello.html
