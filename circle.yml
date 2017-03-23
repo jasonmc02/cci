@@ -7,6 +7,11 @@ database:
     - cp config/database.yml.tmp config/database.yml
     - bundle exec rake db:create db:migrate
 test:
+  pre:
+    - pip install diff_cover
+    - pip install coverage
+    - pip install nose
+    - pip install --upgrade pip
   override:
     - bundle exec thin start:
         background: true
@@ -15,11 +20,6 @@ test:
     - echo 'wake up'
     - curl http://dev.mycompany.com:3000
 
-    - pip install diff_cover
-    - pip install coverage
-    - pip install nose
-    - pip install --upgrade pip
-    - nosetests --help
-    - nosetests --plugins
+  post:
     - nosetests --with-coverage
     - coverage xml
