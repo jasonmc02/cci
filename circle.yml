@@ -19,7 +19,15 @@ test:
     - sleep 30
     - echo 'wake up'
     - curl http://dev.mycompany.com:3000
+    - bundle exec rake test
 
   post:
     - nosetests --with-coverage
     - coverage xml
+
+Teardown:
+  pre:
+    - echo 'pre'
+
+  post:
+    - echo 'post'
