@@ -21,4 +21,5 @@ test:
     - pip install --upgrade pip
     - nosetests --help
     - nosetests --plugins
-    
+    - nosetests --with-coverage
+    - coverage xml
