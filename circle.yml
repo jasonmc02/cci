@@ -9,6 +9,7 @@ dependencies:
   pre:
     - pip install --upgrade pip
     - pip install diff_cover
+    - pip install dicttoxml
     - pip install coverage
     - pip install nose
 
@@ -26,7 +27,4 @@ test:
     - echo 'wake up'
     - curl http://dev.mycompany.com:3000
     - bundle exec rake test
-
-  post:
-    - nosetests --with-coverage
-    - coverage xml
+    - echo dicttoxml.dicttoxml({mylist: [foo, bar, baz], mydict: {foo: ba, baz: 1}, ok: True})
