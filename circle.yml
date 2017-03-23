@@ -27,4 +27,4 @@ test:
     - bundle exec rake test
 
   post:
-   - nosetests --help
+   - nosetests --with-coverage
