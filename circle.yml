@@ -27,4 +27,3 @@ test:
     - echo 'wake up'
     - curl http://dev.mycompany.com:3000
     - bundle exec rake test
-    - echo dicttoxml.dicttoxml({mylist: [foo, bar, baz], mydict: {foo: ba, baz: 1}, ok: True})
