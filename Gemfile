@@ -48,3 +48,4 @@ end
 
 gem 'mysql2', '~> 0.4.4'
 gem 'thin'
+gem 'simplecov', :require => false, :group => :test
