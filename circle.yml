@@ -22,4 +22,4 @@ test:
     - bundle exec rake test
 
   post:
-    - diff-cover $CIRCLE_ARTIFACTS/coverage/coverage.xml  --fail-under=80
+    - diff-cover $CIRCLE_ARTIFACTS/coverage/coverage.xml  --fail-under=30
