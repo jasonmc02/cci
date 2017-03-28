@@ -9,9 +9,6 @@ dependencies:
   pre:
     - pip install --upgrade pip
     - pip install diff_cover
-    - pip install dicttoxml
-    - pip install coverage
-    - pip install nose
 
 database:
   override:
@@ -25,4 +22,4 @@ test:
     - bundle exec rake test
 
   post:
-    - diff-cover $CIRCLE_ARTIFACTS/coverage.xml
+    - diff-cover $CIRCLE_ARTIFACTS/coverage.xml > $CIRCLE_ARTIFACTS/hello.html
