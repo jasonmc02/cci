@@ -22,6 +22,7 @@ if ENV['CIRCLE_ARTIFACTS']
   SimpleCov.coverage_dir(dir)
   SimpleCov.minimum_coverage 50
   SimpleCov.merge_timeout 10800
+  SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
   SimpleCov.start do
     add_filter '/test/'
 
