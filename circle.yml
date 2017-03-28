@@ -23,4 +23,6 @@ test:
     - bundle exec thin start:
           background: true
     - bundle exec rake test
+
+  post:
     - diff-cover $CIRCLE_ARTIFACTS/coverage.xml
