@@ -65,6 +65,10 @@ class UsersController < ApplicationController
     1...10.map { |n| puts n }
   end
 
+  def just_testing_2
+    puts "hola"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
