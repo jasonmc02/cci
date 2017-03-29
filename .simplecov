@@ -1,16 +1,18 @@
 module SimpleCov
-  class << self
+  module CommandGuesser
+    class << self
 
-    private
+      private
 
-    def from_command_line_options
-      case original_run_command
-      when /test\/functional\//, /test\/\{.*functional.*\}\//
-        'Functional Tests'
-      when /test\/integration\//
-        'Integration Tests'
-      else
-        'Unit Tests'
+      def from_command_line_options
+        case original_run_command
+        when /test\/functional\//, /test\/\{.*functional.*\}\//
+          'Functional Tests'
+        when /test\/integration\//
+          'Integration Tests'
+        else
+          'Unit Tests'
+        end
       end
     end
   end
